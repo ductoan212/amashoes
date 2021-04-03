@@ -7,7 +7,7 @@ const data = {
       image: '/images/p1.jpg',
       price: 150,
       brand: 'Vans',
-      rating: 4.5,
+      rating: 3.5,
       numReviews: 10,
       description: 'high quality products',
     },
