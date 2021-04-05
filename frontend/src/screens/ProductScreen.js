@@ -10,13 +10,12 @@ export default function HomeScreen(props) {
     return <div>Product not found!</div>;
   }
 
-  console.log(product);
   return (
     <div>
       <Link to="/">Back to result</Link>
       <div className="row top">
         <div className="col-2">
-          <img className="large" src={product.image}></img>
+          <img className="large" src={product.image} alt={product.name}></img>
         </div>
         <div className="col-1">
           <ul>
