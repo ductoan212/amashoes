@@ -1,0 +1,5 @@
+﻿frontend/node_modules
+frontend/yarn-error.log
+frontend/yarn.lock
+node_modules
+package-lock.json
