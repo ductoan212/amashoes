@@ -3,7 +3,7 @@ import Rating from '../components/Rating';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MeaagseBox';
+import MessageBox from '../components/MessagseBox';
 import { detailsProduct } from '../actions/productActions';
 import { PRODUCT_DETAILS_FAIL } from '../constants/productConstants';
 
