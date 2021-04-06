@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessagseBox';
 import { detailsProduct } from '../actions/productActions';
-import { PRODUCT_DETAILS_FAIL } from '../constants/productConstants';
 
 export default function HomeScreen(props) {
   const dispatch = useDispatch();
