@@ -17,8 +17,7 @@ const data = {
   ],
   products: [
     {
-      _id: '1',
-      name: 'Fashion shoes',
+      name: 'Fashion shoes 0',
       category: 'Man',
       image: '/images/p1.jpg',
       price: 150,
@@ -29,8 +28,7 @@ const data = {
       description: 'high quality products',
     },
     {
-      _id: '2',
-      name: 'Fashion shoes',
+      name: 'Fashion shoes 1',
       category: 'Woman',
       image: '/images/p2.jpg',
       price: 148,
@@ -41,8 +39,7 @@ const data = {
       description: 'high quality products',
     },
     {
-      _id: '3',
-      name: 'Fashion shoes',
+      name: 'Fashion shoes 2',
       category: 'Man',
       image: '/images/p3.jpg',
       price: 99,
@@ -53,8 +50,7 @@ const data = {
       description: 'high quality products',
     },
     {
-      _id: '4',
-      name: 'Fashion shoes',
+      name: 'Fashion shoes 3',
       category: 'Man',
       image: '/images/p4.jpg',
       price: 199,
@@ -65,8 +61,7 @@ const data = {
       description: 'high quality products',
     },
     {
-      _id: '5',
-      name: 'Fashion shoes',
+      name: 'Fashion shoes 4',
       category: 'Man',
       image: '/images/p5.jpg',
       price: 450,
@@ -77,8 +72,7 @@ const data = {
       description: 'high quality products',
     },
     {
-      _id: '6',
-      name: 'Fashion shoes',
+      name: 'Fashion shoes 5',
       category: 'Man',
       image: '/images/p6.jpg',
       price: 251,
@@ -89,8 +83,7 @@ const data = {
       description: 'high quality products',
     },
     {
-      _id: '7',
-      name: 'Fashion shoes',
+      name: 'Fashion shoes 6',
       category: 'Woman',
       image: '/images/p7.jpg',
       price: 456,
@@ -101,8 +94,7 @@ const data = {
       description: 'high quality products',
     },
     {
-      _id: '8',
-      name: 'Fashion shoes',
+      name: 'Fashion shoes 7',
       category: 'Man',
       image: '/images/p8.jpg',
       price: 148,
@@ -113,8 +105,7 @@ const data = {
       description: 'high quality products',
     },
     {
-      _id: '9',
-      name: 'Fashion shoes',
+      name: 'Fashion shoes 8',
       category: 'Woman',
       image: '/images/p9.jpg',
       price: 423,
@@ -125,8 +116,7 @@ const data = {
       description: 'high quality products',
     },
     {
-      _id: '10',
-      name: 'Fashion shoes',
+      name: 'Fashion shoes 9',
       category: 'Man',
       image: '/images/p10.jpg',
       price: 142,
