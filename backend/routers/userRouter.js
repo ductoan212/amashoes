@@ -32,8 +32,7 @@ userRouter.post(
         return;
       }
     }
-    console.log(req.body.email);
-    res.status(401).send({ Message: 'Invalid email or password' });
+    res.status(401).send({ message: 'Invalid email or password' });
   })
 );
 
