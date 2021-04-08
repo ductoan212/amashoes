@@ -15,6 +15,7 @@ export default function CardScreen(props) {
   useEffect(() => {
     if (productID) {
       dispatch(addToCart(productID, qty));
+      // props.history.push(`/product/${productID}`);
     }
   }, [dispatch, productID, qty]);
 
