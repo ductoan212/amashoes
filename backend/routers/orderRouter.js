@@ -5,10 +5,11 @@ import { isAuth } from '../utils.js';
 
 const orderRouter = express.Router();
 
-orderRouter.get(
+orderRouter.post(
   '/',
   isAuth,
   expressAsyncHandler(async (req, res) => {
+    console.log('line 12 of orderRouter.js');
     if (req.body.orderItems.length === 0) {
       res.status(400).send({ message: 'Cart is empty' });
     } else {
