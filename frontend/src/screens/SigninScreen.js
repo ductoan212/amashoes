@@ -47,11 +47,11 @@ export default function SigninScreen(props) {
           ></input>
         </div>
         <div>
-          <label htmlFor="pasword">Email pasword</label>
+          <label htmlFor="password">Pasword</label>
           <input
-            type="pasword"
-            id="pasword"
-            placeholder="Enter pasword"
+            type="password"
+            id="password"
+            placeholder="Enter password"
             required
             onChange={(e) => setPassword(e.target.value)}
           ></input>
