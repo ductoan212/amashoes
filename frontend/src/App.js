@@ -24,6 +24,7 @@ function App() {
   const signoutHandler = () => {
     dispatch(signout());
   };
+  console.log(userInfo);
   return (
     <BrowserRouter>
       <div className="grid-container">
@@ -33,7 +34,7 @@ function App() {
               Amashoes
             </Link>
           </div>
-          <div>
+          <div className="row">
             <Link to="/cart">
               Cart
               {cartItems.length > 0 && (
@@ -61,6 +62,27 @@ function App() {
               </div>
             ) : (
               <Link to="/signin">Sign in</Link>
+            )}
+            {userInfo && userInfo.isAdmin && (
+              <div className="dropdown">
+                <Link to="#admin">
+                  Admin <i className="fa fa-caret-down"></i>
+                </Link>
+                <ul className="dropdown-content">
+                  <li>
+                    <Link to="/dashboard">Dashboard</Link>
+                  </li>
+                  <li>
+                    <Link to="/productlist">Products</Link>
+                  </li>
+                  <li>
+                    <Link to="/orderlist">Orders</Link>
+                  </li>
+                  <li>
+                    <Link to="/userlist">Users</Link>
+                  </li>
+                </ul>
+              </div>
             )}
           </div>
         </header>
