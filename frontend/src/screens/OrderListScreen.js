@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   deleteOrder,
-  listOrderMine,
   listOrders,
 } from '../actions/orderActions';
 import LoadingBox from '../components/LoadingBox';
@@ -39,7 +38,9 @@ export default function OrderListScreen(props) {
       <h1>Orders</h1>
       {loadingDelete && <LoadingBox />}
       {errorDelete && <MessageBox variant="danger">{errorDelete}</MessageBox>}
-      {successDelete && <MessageBox variant="success">Order deleted</MessageBox>}
+      {successDelete && (
+        <MessageBox variant="success">Order deleted</MessageBox>
+      )}
 
       {loading ? (
         <LoadingBox />
@@ -67,7 +68,9 @@ export default function OrderListScreen(props) {
                 <td>{order.totalPrice.toFixed(2)}</td>
                 <td>{order.isPaid ? order.paidAt.substring(0, 10) : 'No'}</td>
                 <td>
-                  {order.isdeliverd ? order.deliverdAt.substring(0, 10) : 'No'}
+                  {order.isDelivered
+                    ? order.deliveredAt.substring(0, 10)
+                    : 'No'}
                 </td>
                 <td>
                   <button

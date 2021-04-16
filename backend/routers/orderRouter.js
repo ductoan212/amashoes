@@ -11,7 +11,6 @@ orderRouter.get(
   isAdmin,
   expressAsyncHandler(async (req, res) => {
     const orders = await Order.find({}).populate('user', 'name');
-    console.log(orders);
     res.send(orders);
   })
 );
@@ -95,6 +94,24 @@ orderRouter.delete(
       res.send({ message: 'Order Deleted', order: deleteOrder });
     } else {
       res.status(404).send({ message: 'Order Not Found' });
+    }
+  })
+);
+
+orderRouter.put(
+  '/:id/deliver',
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const order = await Order.findById(req.params.id);
+    if (order) {
+      order.isDelivered = true;
+      order.deliveredAt = Date.now();
+
+      const updatedOrder = await order.save();
+      res.send({ message: 'Order Delivered', order: updatedOrder });
+    } else {
+      req.status(404).send({ meaasge: 'Order Not Found' });
     }
   })
 );
