@@ -31,7 +31,7 @@ app.get('/api/config/paypal', (req, res) => {
 });
 
 app.use(express.static('/frontend/build'));
-app.get('*', (req, res) => res.sendFile('/frontend/build/index.html'));
+app.get('/', (req, res) => res.sendFile('/frontend/build/index.html'));
 // app.get('/', (req, res) => {
 //   res.send('Server is ready');
 // });
