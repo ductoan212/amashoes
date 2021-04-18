@@ -3,7 +3,7 @@ import expressAsyncHandler from 'express-async-handler';
 import bcrypt from 'bcryptjs';
 import data from '../data.js';
 import User from '../models/userModel.js';
-import { generateToken } from '../utils.js';
+import { generateToken, isAdmin } from '../utils.js';
 import { isAuth } from '../utils.js';
 
 const userRouter = express.Router();
@@ -17,10 +17,21 @@ userRouter.get(
   })
 );
 
+userRouter.get(
+  '/',
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const users = await User.find({});
+    res.send(users);
+  })
+);
+
 userRouter.post(
   '/signin',
   expressAsyncHandler(async (req, res) => {
     const user = await User.findOne({ email: req.body.email });
+    console.log(user);
     if (user) {
       if (bcrypt.compareSync(req.body.password, user.password)) {
         res.send({
@@ -76,7 +87,7 @@ userRouter.put(
     if (user) {
       user.name = req.body.name || user.name;
       user.email = req.body.email || user.email;
-      if(req.body.password) {
+      if (req.body.password) {
         user.password = bcrypt.hashSync(req.body.password, 8);
       }
       const updateUser = await user.save();
@@ -87,7 +98,7 @@ userRouter.put(
         isAdmin: updateUser.isAdmin,
         token: generateToken(updateUser),
       });
-    } 
+    }
   })
 );
 
