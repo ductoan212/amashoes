@@ -192,6 +192,7 @@ export default function OrderScreen(props) {
                     <LoadingBox />
                   ) : (
                     <>
+                      {loadingPay && <LoadingBox />}
                       {errorPay && (
                         <MessageBox variant="danger">{errorPay}</MessageBox>
                       )}

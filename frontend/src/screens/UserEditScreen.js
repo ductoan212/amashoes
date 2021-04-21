@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  detailsUser,
-  updateUser,
-  updateUserProfile,
-} from '../actions/userActions';
+import { detailsUser, updateUser } from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessagseBox';
-import {
-  USER_UPDATE_PROFILE_RESET,
-  USER_UPDATE_RESET,
-} from '../constants/userConstants';
+import { USER_UPDATE_RESET } from '../constants/userConstants';
 
 export default function UserEditScreen(props) {
   const userId = props.match.params.id;
