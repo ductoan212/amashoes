@@ -84,7 +84,6 @@ export const detailsUser = (userId) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     });
-    console.log('user action 77', data);
     dispatch({ type: USER_DETAILS_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
@@ -164,6 +163,7 @@ export const deleteUser = (userId) => async (dispatch, getState) => {
 };
 
 export const updateUser = (user) => async (dispatch, getState) => {
+  console.log(user);
   dispatch({ type: USER_UPDATE_REQUEST, payload: user });
   const {
     userSignin: { userInfo },

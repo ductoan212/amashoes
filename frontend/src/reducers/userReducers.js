@@ -59,7 +59,6 @@ export const userDetailsReducer = (state = { loading: true }, action) => {
     case USER_DETAILS_REQUEST:
       return { loading: true };
     case USER_DETAILS_SUCCESS:
-      console.log('user reducer 51', action.payload);
       return { loading: false, user: action.payload };
     case USER_DETAILS_FAIL:
       return { loading: false, error: action.payload };
