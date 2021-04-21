@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { detailsUser, updateUser } from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
@@ -6,6 +6,7 @@ import MessageBox from '../components/MessagseBox';
 import { USER_UPDATE_RESET } from '../constants/userConstants';
 
 export default function UserEditScreen(props) {
+  const mounted = useRef();
   const userId = props.match.params.id;
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -24,17 +25,24 @@ export default function UserEditScreen(props) {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    if (successUpdate) {
-      dispatch({ type: USER_UPDATE_RESET });
-      props.history.push('/userlist');
-    }
-    if (!user || user._id !== userId) {
+    if (!mounted.current) {
+      // do componentDidMount logic
       dispatch(detailsUser(userId));
+      mounted.current = true;
     } else {
-      setName(user.name);
-      setEmail(user.email);
-      setIsSeller(user.isSeller);
-      setIsAdmin(user.isAdmin);
+      // do componentDidUpdate logic
+      if (successUpdate) {
+        dispatch({ type: USER_UPDATE_RESET });
+        props.history.push('/userlist');
+      }
+      if (!user || user._id !== userId) {
+        dispatch(detailsUser(userId));
+      } else {
+        setName(user.name);
+        setEmail(user.email);
+        setIsSeller(user.isSeller);
+        setIsAdmin(user.isAdmin);
+      }
     }
   }, [dispatch, props.history, user, userId, successUpdate]);
 
