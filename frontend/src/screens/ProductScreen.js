@@ -20,7 +20,6 @@ export default function HomeScreen(props) {
   const addToCardHandler = () => {
     props.history.push(`/cart/${productId}?qty=${qty}`);
   };
-  // console.log('props.history', props.history);
   return (
     <div>
       {loading ? (
@@ -66,7 +65,6 @@ export default function HomeScreen(props) {
                     <div className="row">
                       <div>Status: </div>
                       <div>
-                        {console.log(product)}
                         {product.countInStock > 0 ? (
                           <span className="success">In Stock</span>
                         ) : (

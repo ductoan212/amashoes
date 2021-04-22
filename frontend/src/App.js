@@ -30,7 +30,7 @@ function App() {
   const signoutHandler = () => {
     dispatch(signout());
   };
-  console.log(userInfo);
+  
   return (
     <BrowserRouter>
       <div className="grid-container">

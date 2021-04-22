@@ -8,10 +8,8 @@ const productRouter = express.Router();
 productRouter.get(
   '/',
   expressAsyncHandler(async (req, res) => {
-    console.log(req.query.seller);
     const seller = req.query.seller || '';
     const sellerFilter = seller ? { seller } : {};
-    console.log(sellerFilter);
     const products = await Product.find({ ...sellerFilter });
     res.send(products);
   })
