@@ -3,6 +3,10 @@ import mongoose from 'mongoose';
 const productShema = new mongoose.Schema(
   {
     name: { type: String, require: true, unique: true },
+    seller: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+    },
     image: { type: String, require: true },
     brand: { type: String, require: true },
     category: { type: String, require: true },
