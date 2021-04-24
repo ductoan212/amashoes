@@ -142,6 +142,10 @@ a.brand {
   align-items: flex-start;
 }
 
+.row.start {
+  justify-content: flex-start;
+}
+
 .col-1 {
   flex: 1 1 25rem;
 }
@@ -150,8 +154,16 @@ a.brand {
   flex: 2 1 50rem;
 }
 
+.col-3 {
+  flex: 32 1 75rem;
+}
+
 .min-30 {
   min-width: 30rem;
+}
+
+.p-1 {
+  padding: 1rem;
 }
 
 /* Image */
