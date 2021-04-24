@@ -136,7 +136,7 @@ export const listOrderMine = () => async (dispatch, getState) => {
   }
 };
 
-export const listOrders = () => async (dispatch, getState) => {
+export const listOrders = ({ seller = '' }) => async (dispatch, getState) => {
   dispatch({
     type: ORDER_LIST_REQUEST,
   });
@@ -144,7 +144,7 @@ export const listOrders = () => async (dispatch, getState) => {
     userSignin: { userInfo },
   } = getState();
   try {
-    const { data } = await Axios.get(`/api/orders`, {
+    const { data } = await Axios.get(`/api/orders?seller=${seller}`, {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },

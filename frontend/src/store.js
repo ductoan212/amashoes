@@ -45,6 +45,7 @@ const initialState = {
       : 'Paypal',
   },
 };
+
 const reducer = combineReducers({
   productList: productListReducer,
   productDetails: productDetailsReducer,
