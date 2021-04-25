@@ -22,6 +22,9 @@ import {
   USER_UPDATE_SUCCESS,
   USER_UPDATE_REQUEST,
   USER_UPDATE_FAIL,
+  USER_TOPSELLERS_LIST_REQUEST,
+  USER_TOPSELLERS_LIST_SUCCESS,
+  USER_TOPSELLERS_LIST_FAIL,
 } from '../constants/userConstants';
 
 export const signin = (email, password) => async (dispatch) => {
@@ -42,7 +45,6 @@ export const signin = (email, password) => async (dispatch) => {
 };
 
 export const register = (name, email, password) => async (dispatch) => {
-  console.log(name, email, password);
   dispatch({ type: USER_REGISTER_REQUEST, payload: { name, email, password } });
   try {
     const { data } = await Axios.post('api/users/register', {
@@ -163,23 +165,34 @@ export const deleteUser = (userId) => async (dispatch, getState) => {
 };
 
 export const updateUser = (user) => async (dispatch, getState) => {
-  console.log(user);
   dispatch({ type: USER_UPDATE_REQUEST, payload: user });
   const {
     userSignin: { userInfo },
   } = getState();
   try {
-    const { data } = await Axios.put(
-      `/api/users/${user._id}`,
-      user,
-      {
-        headers: { Authorization: `Bearer ${userInfo.token}` },
-      }
-    );
+    const { data } = await Axios.put(`/api/users/${user._id}`, user, {
+      headers: { Authorization: `Bearer ${userInfo.token}` },
+    });
     dispatch({ type: USER_UPDATE_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
       type: USER_UPDATE_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const listTopSeller = () => async (dispatch) => {
+  dispatch({ type: USER_TOPSELLERS_LIST_REQUEST });
+  try {
+    const { data } = await Axios.get(`/api/users/top-sellers`);
+    dispatch({ type: USER_TOPSELLERS_LIST_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: USER_TOPSELLERS_LIST_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

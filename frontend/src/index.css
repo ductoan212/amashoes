@@ -100,11 +100,10 @@ button.primary {
 
 button.block {
   width: 100%;
-}button.small {
+}
+button.small {
   font-size: 1.5rem;
 }
-
-
 
 /* Header */
 header a {
@@ -315,7 +314,8 @@ img.large {
   background-color: #f4f4f4;
 }
 
-.table td , .table th {
+.table td,
+.table th {
   text-align: left;
   border: 0.1rem solid #e4e4e4;
   padding: 0.5rem;
@@ -323,4 +323,9 @@ img.large {
 
 .table button {
   margin: 0 0.2rem;
+}
+
+/* Carousel */
+.carousel .slide img {
+  max-width: 30rem;
 }
