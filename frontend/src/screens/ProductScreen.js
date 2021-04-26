@@ -20,7 +20,6 @@ export default function HomeScreen(props) {
   const addToCardHandler = () => {
     props.history.push(`/cart/${productId}?qty=${qty}`);
   };
-  // console.log('props.history', props.history);
   return (
     <div>
       {loading ? (
@@ -57,6 +56,18 @@ export default function HomeScreen(props) {
               <div className="card card-body">
                 <ul>
                   <li>
+                    Seller
+                    <h2>
+                      <Link to={`/seller/${product.seller._id}`}>
+                        {product.seller.seller.name}
+                      </Link>
+                    </h2>
+                    <Rating>
+                      rating={product.seller.seller.rating}
+                      numReviews={product.seller.seller.numReviews}
+                    </Rating>
+                  </li>
+                  <li>
                     <div className="row">
                       <div>Price</div>
                       <div className="price">${product.price}</div>
@@ -66,7 +77,6 @@ export default function HomeScreen(props) {
                     <div className="row">
                       <div>Status: </div>
                       <div>
-                        {console.log(product)}
                         {product.countInStock > 0 ? (
                           <span className="success">In Stock</span>
                         ) : (
