@@ -20,6 +20,8 @@ import ProductEditScreen from './screens/ProductEditScreen';
 import OrderListScreen from './screens/OrderListScreen';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
+import SellerScreen from './screens/SellerScreen';
+import AdminOrSellerRoute from './components/AdminOrSellerRoute';
 
 function App() {
   const cart = useSelector((state) => state.cart);
@@ -30,7 +32,7 @@ function App() {
   const signoutHandler = () => {
     dispatch(signout());
   };
-  console.log(userInfo);
+  
   return (
     <BrowserRouter>
       <div className="grid-container">
@@ -69,6 +71,21 @@ function App() {
             ) : (
               <Link to="/signin">Sign in</Link>
             )}
+            {userInfo && userInfo.isSeller && (
+              <div className="dropdown">
+                <Link to="#seller">
+                  Seller <i className="fa fa-caret-down"></i>
+                </Link>
+                <ul className="dropdown-content">
+                  <li>
+                    <Link to="/productlist/seller">Products</Link>
+                  </li>
+                  <li>
+                    <Link to="/orderlist/seller">Orders</Link>
+                  </li>
+                </ul>
+              </div>
+            )}
             {userInfo && userInfo.isAdmin && (
               <div className="dropdown">
                 <Link to="#admin">
@@ -94,6 +111,7 @@ function App() {
         </header>
 
         <main>
+          <Route path="/seller/:id?" component={SellerScreen}></Route>
           <Route path="/cart/:id?" component={CartScreen}></Route>
           <Route path="/product/:id" component={ProductScreen} exact></Route>
           <Route
@@ -112,10 +130,10 @@ function App() {
             path="/profile"
             component={ProfileScreen}
           ></PrivateRoute>
-          <AdminRoute
+          <AdminOrSellerRoute
             path="/productlist"
             component={ProductListScreen}
-          ></AdminRoute>
+          ></AdminOrSellerRoute>
           <AdminRoute
             path="/orderlist"
             component={OrderListScreen}

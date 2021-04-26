@@ -10,7 +10,7 @@ export default function CardScreen(props) {
     ? Number(props.location.search.split('=')[1])
     : 1;
   const cart = useSelector((state) => state.cart);
-  const { cartItems } = cart;
+  const { cartItems, error, seller } = cart;
   const dispatch = useDispatch();
   useEffect(() => {
     if (productID) {
@@ -30,6 +30,13 @@ export default function CardScreen(props) {
     <div className="row top">
       <div className="col-2">
         <h1>Shopping Cart</h1>
+        {error && (
+          <MessageBox variant="danger">
+            Can't Add To Cart. Buy only from{' '}
+            <Link to={`/seller/${seller._id}`}>{seller.seller.name}</Link> in
+            this order
+          </MessageBox>
+        )}
         {cartItems.length === 0 ? (
           <MessageBox>
             Cart is Empty. <Link to="/">Go Shopping</Link>
