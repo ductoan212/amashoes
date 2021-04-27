@@ -9,14 +9,18 @@ productRouter.get(
   '/',
   expressAsyncHandler(async (req, res) => {
     const name = req.query.name || '';
+    const category = req.query.category || '';
     const seller = req.query.seller || '';
+
     // $regex để tìm chuỗi tương tự
     // $optiona: '$i' ko phân biệt hoa thường
     const nameFilter = name ? { name: { $regex: name, $options: '$i' } } : {};
     const sellerFilter = seller ? { seller } : {};
+    const categoryFilter = category ? { category } : {};
     const products = await Product.find({
       ...sellerFilter,
       ...nameFilter,
+      ...categoryFilter,
     }).populate('seller');
     res.send(products);
   })
@@ -28,6 +32,14 @@ productRouter.get(
     // await Product.remove({});
     const createProducts = await Product.insertMany(data.products);
     res.send({ createProducts });
+  })
+);
+
+productRouter.get(
+  '/categories',
+  expressAsyncHandler(async (req, res) => {
+    const categories = await Product.find().distinct('category');
+    res.send(categories);
   })
 );
 
