@@ -372,3 +372,7 @@ aside li {
 button.close-sidebar {
   padding: 0.5rem 0.8rem;
 }
+
+.active { 
+  font-weight: bold;
+}
