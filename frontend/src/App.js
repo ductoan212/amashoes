@@ -231,7 +231,9 @@ function App() {
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
 
-        <footer className="row center">All right reserved</footer>
+        <footer className="row center">
+          All right reserved. Producted by Duc Toan
+        </footer>
       </div>
     </BrowserRouter>
   );

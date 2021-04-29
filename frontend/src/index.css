@@ -376,3 +376,15 @@ button.close-sidebar {
 .active { 
   font-weight: bold;
 }
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+.review {
+  background-color: #e9e9e9;
+  padding: 1rem 1rem;
+  border-radius: 1rem;
+}
