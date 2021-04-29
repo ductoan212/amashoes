@@ -376,3 +376,9 @@ button.close-sidebar {
 .active { 
   font-weight: bold;
 }
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+}

@@ -8,6 +8,7 @@ import { listProducts } from '../actions/productActions';
 import { Link, useParams } from 'react-router-dom';
 import { prices, ratings } from '../utils';
 import Rating from '../components/Rating';
+import ScrollToTop from '../components/ScrollToTop';
 
 export default function SearchScreen(props) {
   const {
@@ -165,6 +166,7 @@ export default function SearchScreen(props) {
           )}
         </div>
       </div>
+      <ScrollToTop></ScrollToTop>
     </div>
   );
 }

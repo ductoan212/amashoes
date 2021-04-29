@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { listProducts } from '../actions/productActions';
 import { listTopSeller } from '../actions/userActions';
 import { Link } from 'react-router-dom';
+import ScrollToTop from '../components/ScrollToTop';
 
 export default function HomeScreen() {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ export default function HomeScreen() {
 
   return (
     <div>
+      <ScrollToTop/>
       <h2>Top Sellers</h2>
       {loadingSellers ? (
         <LoadingBox />
