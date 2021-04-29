@@ -11,10 +11,12 @@ import {
   orderPayReducer,
 } from './reducers/orderReducers';
 import {
+  productCategoryListReducer,
   productCreateReducer,
   productDeleteReducer,
   productDetailsReducer,
   productListReducer,
+  productReviewCreateReducer,
   productUpdateReducer,
 } from './reducers/productReducers';
 import {
@@ -48,27 +50,32 @@ const initialState = {
 };
 
 const reducer = combineReducers({
+  cart: cartReducer,
+
   productList: productListReducer,
   productDetails: productDetailsReducer,
-  cart: cartReducer,
-  userSignin: userSigninReducer,
-  userRegister: userRegisterReducer,
-  orderCreate: orderCreateReducer,
-  orderDetails: orderDetailsReducer,
-  orderPay: orderPayReducer,
-  orderMineList: orderMineListReducer,
-  userDetails: userDetailsReducer,
-  userUpdateProfile: userUpdateProfileReducer,
   productCreate: productCreateReducer,
   productUpdate: productUpdateReducer,
   productDelete: productDeleteReducer,
-  orderList: orderListReducer,
-  orderDelete: orderDeleteReducer,
-  orderDeliver: orderDeliverReducer,
+  productCategoryList: productCategoryListReducer,
+  productReviewCreate: productReviewCreateReducer,
+
+  userSignin: userSigninReducer,
+  userRegister: userRegisterReducer,
+  userDetails: userDetailsReducer,
+  userUpdateProfile: userUpdateProfileReducer,
   userList: userListReducer,
   userDelete: userDeleteReducer,
   userUpdate: userUpdateReducer,
   userTopSellerList: userTopSellerListReducer,
+
+  orderCreate: orderCreateReducer,
+  orderDetails: orderDetailsReducer,
+  orderPay: orderPayReducer,
+  orderDeliver: orderDeliverReducer,
+  orderList: orderListReducer,
+  orderMineList: orderMineListReducer,
+  orderDelete: orderDeleteReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

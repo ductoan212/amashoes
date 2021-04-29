@@ -76,16 +76,11 @@ export const signout = () => (dispatch) => {
 
 export const detailsUser = (userId) => async (dispatch, getState) => {
   dispatch({ type: USER_DETAILS_REQUEST, payload: userId });
-  const {
-    userSignin: { userInfo },
-  } = getState();
 
   try {
-    const { data } = await Axios.get(`/api/users/${userId}`, {
-      headers: {
-        Authorization: `Bearer ${userInfo.token}`,
-      },
-    });
+    const { data } = await Axios.get(
+      `/api/users/${userId}`
+    );
     dispatch({ type: USER_DETAILS_SUCCESS, payload: data });
   } catch (error) {
     dispatch({

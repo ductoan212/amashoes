@@ -329,3 +329,62 @@ img.large {
 .carousel .slide img {
   max-width: 30rem;
 }
+
+/* Aside */
+aside {
+  position: fixed;
+  width: 30rem;
+  height: 100%;
+  background-color: #efefef;
+  z-index: 1000;
+  transform: translateX(-30rem);
+  transition: all 0.5s;
+}
+
+aside.open {
+  transform: translateX(0);
+}
+
+button.open-sidebar {
+  font-size: 3rem;
+  padding: 0.2rem 0.5rem;
+  margin: 0 0.5rem;
+  background: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+button.open-sidebar:hover {
+  border-color: #ffffff;
+}
+
+aside ul {
+  padding: 0;
+  list-style: none;
+}
+
+aside li {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+button.close-sidebar {
+  padding: 0.5rem 0.8rem;
+}
+
+.active { 
+  font-weight: bold;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+.review {
+  background-color: #e9e9e9;
+  padding: 1rem 1rem;
+  border-radius: 1rem;
+}
