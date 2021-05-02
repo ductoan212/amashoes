@@ -186,7 +186,7 @@ export default function OrderScreen(props) {
                   </div>
                 </div>
               </li>
-              {!order.isPaid && (
+              {!order.isPaid && order.paymentMethod === 'Paypal' && (
                 <li>
                   {!sdkReady ? (
                     <LoadingBox />
@@ -202,6 +202,11 @@ export default function OrderScreen(props) {
                       ></PayPalButton>
                     </>
                   )}
+                </li>
+              )}
+              {!order.isPaid && order.paymentMethod === 'Momo' && (
+                <li>
+                  a
                 </li>
               )}
               {userInfo.isAdmin && order.isPaid && !order.isDelivered && (
