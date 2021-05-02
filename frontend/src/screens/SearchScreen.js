@@ -65,7 +65,7 @@ export default function SearchScreen(props) {
           <div>{products.length} Results</div>
         )}
         <div>
-          Sort by {' '}
+          Sort by{' '}
           <select
             value={order}
             onChange={(e) =>
@@ -76,6 +76,7 @@ export default function SearchScreen(props) {
             <option value="lowest">Price: Low to High</option>
             <option value="highest">Price: High to Low</option>
             <option value="toprated">Avg. Customer Reviews</option>
+            <option value="mostreview">Most Review</option>
           </select>
         </div>
       </div>

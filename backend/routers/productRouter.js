@@ -31,10 +31,12 @@ productRouter.get(
     const sortOrder =
       order === 'lowest'
         ? { price: 1 }
-        : order === 'hightest'
+        : order === 'highest'
         ? { price: -1 }
         : order === 'toprated'
         ? { rating: -1 }
+        : order === 'mostreview'
+        ? { numReviews: -1 }
         : { _id: -1 };
 
     const products = await Product.find({
@@ -46,6 +48,7 @@ productRouter.get(
     })
       .populate('seller')
       .sort(sortOrder);
+    console.log(products);
     res.send(products);
   })
 );
