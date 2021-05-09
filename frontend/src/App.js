@@ -207,7 +207,7 @@ function App() {
             exact
           ></Route>
           <Route
-            path="/search/category/:category/name/:name/min/:min/max/:max/rating/:rating/order/:order"
+            path="/search/category/:category/name/:name/min/:min/max/:max/rating/:rating/order/:order/pageNumber/:pageNumber"
             component={SearchScreen}
             exact
           ></Route>
@@ -218,6 +218,12 @@ function App() {
           <AdminOrSellerRoute
             path="/productlist"
             component={ProductListScreen}
+            exact
+          ></AdminOrSellerRoute>
+          <AdminOrSellerRoute
+            path="/productlist/pageNumber/:pageNumber"
+            component={ProductListScreen}
+            exact
           ></AdminOrSellerRoute>
           <AdminRoute
             path="/orderlist"

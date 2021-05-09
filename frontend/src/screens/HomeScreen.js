@@ -29,7 +29,7 @@ export default function HomeScreen() {
 
   return (
     <div>
-      <ScrollToTop/>
+      <ScrollToTop />
       <h2>Top Sellers</h2>
       {loadingSellers ? (
         <LoadingBox />
