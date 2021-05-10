@@ -232,6 +232,11 @@ function App() {
             component={ProductListScreen}
             exact
           ></AdminOrSellerRoute>
+          <AdminOrSellerRoute
+            path="/orderlist/seller"
+            component={OrderListScreen}
+            exact
+          ></AdminOrSellerRoute>
 
           <AdminRoute
             path="/productlist"
@@ -246,12 +251,17 @@ function App() {
           <AdminRoute
             path="/orderlist"
             component={OrderListScreen}
+            exact
           ></AdminRoute>
           <AdminRoute
             path="/user/:id/edit"
             component={UserEditScreen}
           ></AdminRoute>
-          <AdminRoute path="/userlist" component={UserListScreen}></AdminRoute>
+          <AdminRoute
+            path="/userlist"
+            component={UserListScreen}
+            exact
+          ></AdminRoute>
           <AdminRoute
             path="/dashboard"
             component={DashboardScreen}
