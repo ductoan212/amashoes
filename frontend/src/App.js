@@ -113,7 +113,7 @@ function App() {
                 </Link>
                 <ul className="dropdown-content">
                   <li>
-                    <Link to="/productlist/seller">Products</Link>
+                    <Link to="/productlist/seller">My Products</Link>
                   </li>
                   <li>
                     <Link to="/orderlist/seller">Orders</Link>
@@ -221,16 +221,28 @@ function App() {
             path="/profile"
             component={ProfileScreen}
           ></PrivateRoute>
+
           <AdminOrSellerRoute
+            path="/productlist/seller"
+            component={ProductListScreen}
+            exact
+          ></AdminOrSellerRoute>
+          <AdminOrSellerRoute
+            path="/productlist/seller/pageNumber/:pageNumber"
+            component={ProductListScreen}
+            exact
+          ></AdminOrSellerRoute>
+
+          <AdminRoute
             path="/productlist"
             component={ProductListScreen}
             exact
-          ></AdminOrSellerRoute>
-          <AdminOrSellerRoute
+          ></AdminRoute>
+          <AdminRoute
             path="/productlist/pageNumber/:pageNumber"
             component={ProductListScreen}
             exact
-          ></AdminOrSellerRoute>
+          ></AdminRoute>
           <AdminRoute
             path="/orderlist"
             component={OrderListScreen}
