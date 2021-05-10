@@ -96,6 +96,7 @@ export default function ProductListScreen(props) {
           <table className="table">
             <thead>
               <tr>
+                <th>NO</th>
                 <th>ID</th>
                 <th>NAME</th>
                 <th>PRICE</th>
@@ -105,8 +106,9 @@ export default function ProductListScreen(props) {
               </tr>
             </thead>
             <tbody>
-              {products.map((product) => (
+              {products.map((product, index) => (
                 <tr key={product._id}>
+                  <td>{index + 1}</td>
                   <td>{product._id}</td>
                   <td>{product.name}</td>
                   <td>{product.price}</td>

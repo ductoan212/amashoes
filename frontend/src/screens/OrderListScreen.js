@@ -51,6 +51,7 @@ export default function OrderListScreen(props) {
         <table className="table">
           <thead>
             <tr>
+              <th>NO</th>
               <th>ID</th>
               <th>USER</th>
               <th>DATE</th>
@@ -61,8 +62,9 @@ export default function OrderListScreen(props) {
             </tr>
           </thead>
           <tbody>
-            {orders.map((order) => (
+            {orders.map((order, index) => (
               <tr key={order._id}>
+                <td>{index + 1}</td>
                 <td>{order._id}</td>
                 <td>{order.user.name}</td>
                 <td>{order.createdAt.substring(0, 10)}</td>
