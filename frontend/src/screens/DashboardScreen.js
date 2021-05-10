@@ -1,20 +1,8 @@
-import Axios from 'axios';
-import { PayPalButton } from 'react-paypal-button-v2';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import {
-  deliverOrder,
-  detailsOrder,
-  payOrder,
-  summaryOrder,
-} from '../actions/orderActions';
+import { summaryOrder } from '../actions/orderActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessagseBox';
-import {
-  ORDER_DELIVER_RESET,
-  ORDER_PAY_RESET,
-} from '../constants/orderConstants';
 import Chart from 'react-google-charts';
 
 export default function DashboardScreen(props) {

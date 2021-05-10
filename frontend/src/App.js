@@ -177,7 +177,12 @@ function App() {
         </aside>
 
         <main>
-          <Route path="/seller/:id?" component={SellerScreen}></Route>
+          <Route
+            path="/seller/:id/pageNumber/:pageNumber"
+            component={SellerScreen}
+            exact
+          ></Route>
+          <Route path="/seller/:id" component={SellerScreen} exact></Route>
           <Route path="/cart/:id?" component={CartScreen}></Route>
           <Route path="/product/:id" component={ProductScreen} exact></Route>
           <Route
