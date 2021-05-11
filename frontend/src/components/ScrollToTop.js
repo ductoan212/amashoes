@@ -30,7 +30,7 @@ export default function ScrollToTop() {
             src="https://i.postimg.cc/44Ytsk8Z/top-arrow-emoj.png"
             alt="Go to top"
           /> */}
-          <img src="/icons/scroll-to-top.svg" alt="Go to top" width="60px"/>
+          <img src="/icons/scroll-to-top.svg" alt="Go to top" />
         </div>
       )}
     </div>
