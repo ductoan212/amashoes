@@ -26,7 +26,9 @@
     "jsonwebtoken": "^8.5.1",
     "mailgun-js": "^0.22.0",
     "mongoose": "^5.12.3",
-    "react-responsive-carousel": "^3.2.18"
+    "multer": "^1.4.2",
+    "react-responsive-carousel": "^3.2.18",
+    "socket.io": "^4.1.0"
   },
   "devDependencies": {
     "eslint": "^7.23.0",
